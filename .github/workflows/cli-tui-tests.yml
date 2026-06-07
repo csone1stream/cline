@@ -35,7 +35,7 @@ jobs:
       - name: Run TUI Tests
         id: tui_tests
         run: |
-          npm run test:e2e:cli:tui 2>&1 | tee tui-test-output.log
+          npx vitest run tests/e2e/cli/cli/auth.test.ts tests/e2e/cli/cli/config.test.ts tests/e2e/cli/cli/dev.test.ts tests/e2e/cli/cli/flags-behavior.test.ts tests/e2e/cli/cli/history.test.ts tests/e2e/cli/flags.test.ts tests/e2e/cli/headless/headless.test.ts tests/e2e/cli/help.test.ts tests/e2e/cli/interactive.test.ts tests/e2e/cli/interactive/chat.test.ts tests/e2e/cli/version.test.ts
           exit_code=${PIPESTATUS[0]}
           echo "tui_exit_code=$exit_code" >> $GITHUB_OUTPUT
           exit $exit_code
